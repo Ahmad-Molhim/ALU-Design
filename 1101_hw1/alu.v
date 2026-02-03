@@ -24,7 +24,10 @@ module alu (
   reg signed [23:0] mac_mult_result_r;
   reg signed [23:0] fixed_format_r;
   reg signed [23:0] mac_fixed_format_r;
+  reg signed [23:0] mac_fixed_format_r;
+  reg signed [24:0] prev_accumulator_r;
   reg signed [24:0] accumulator_r;
+
   // ---- Add your own wires and registers here if needed ---- //
 
 
@@ -36,6 +39,7 @@ module alu (
   assign o_overflow = o_overflow_r;
   assign abs_a_r = (i_data_a[11] == 1) ? (~i_data_a + 1) : i_data_a;
   assign abs_b_r = (i_data_b[11] == 1) ? (~i_data_b + 1) : i_data_b;
+  // assign accumulator_r = prev_accumulator_r + mac_fixed_format_r;
   // ---- Add your own wire data assignments here if needed ---- //
 
 
@@ -51,11 +55,11 @@ module alu (
 
     if (i_valid) begin
 
-      accumulator = 25'b0;
+      prev_accumulator_r = 25'b0;
 
       case (i_inst)
         3'b000: begin
-          sum_r  = i_data_a + i_data_b;
+          sum_r = i_data_a + i_data_b;
           o_data_w = sum_r[11:0];
           o_valid_w = 1'b1;
           o_overflow_w = (i_data_a[11] == i_data_b[11]) && (sum_r[11] != i_data_a[11]);
@@ -69,17 +73,18 @@ module alu (
         end  // SUBTRACT
 
         3'b010: begin
-          mult_result_r  = i_data_a * i_data_b;
-          fixed_format_r = {{5{mult_result_r[23]}}, mult_result_r[23:5]}; //sign extend and shift by 5
+          mult_result_r = i_data_a * i_data_b;
+          fixed_format_r = {{12{mult_result_r[16]}}, mult_result_r[16:5]};  //sign extend and shift by 5
           o_data_w = fixed_format_r[11:0];
           o_valid_w = 1'b1;
           o_overflow_w = ({12{fixed_format_r[11]}} != fixed_format_r[23:12]);
         end  // MULTIPLY
 
         3'b011: begin
-          mac_mult_result_r = (i_data_a * i_data_b);
-          mac_fixed_format_r = {{5{mac_mult_result_r[23]}}, mac_mult_result_r[23:5]}; //sign extend and shift by 5
-          accumulator_r = mac_fixed_format_r + accumulator_r;
+          mac_mult_result_r = i_data_a * i_data_b;
+          mac_fixed_format_w = {{12{mac_mult_result_r[16]}}, mac_mult_result_r[16:5]};
+          // mac_mult_overflow_w = ({12{fixed_format_r[11]}} != fixed_format_r[23:12]);
+          accumulator_r = prev_accumulator_r + mac_fixed_format_r;
           o_data_w = accumulator_r[11:0];
           o_valid_w = 1'b1;
           o_overflow_w = ({13{accumulator_r[11]}} != fixed_format_r[24:12]);
@@ -102,11 +107,15 @@ module alu (
         end  // MEAN
 
         3'b111: begin
-          o_data_w = (abs_a_r > abs_b_r) ? i_data_a : i_data_b;
+          o_data_w  = (abs_a_r > abs_b_r) ? i_data_a : i_data_b;
           o_valid_w = 1'b1;
         end  // ABSOLUTE MAX
 
-        default: o_data_w = 12'b0; // Default case
+        default: begin
+          o_data_w = 12'b0;
+          o_valid_w = 1'b0;
+          o_overflow_w = 1'b0;
+        end  // Default case
 
       endcase
     end
@@ -117,15 +126,17 @@ module alu (
   // ---------------------------------------------------------------------------
   // ---- Write your sequential block design here ---- //
 
-  always @(posedge i_clk or negedge i_rst_n) begin
+  always @(negedge i_clk or negedge i_rst_n) begin
     if (!i_rst_n) begin
       o_data_r <= 0;
       o_overflow_r <= 0;
       o_valid_r <= 0;
+      prev_accumulator_r <= 0;
     end else begin
       o_data_r <= o_data_w;
       o_overflow_r <= o_overflow_w;
       o_valid_r <= o_valid_w;
+      prev_accumulator_r <= accumulator_r;
     end
   end
 endmodule
