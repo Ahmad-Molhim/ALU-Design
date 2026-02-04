@@ -16,14 +16,13 @@ module alu (
   reg [11:0] o_data_w, o_data_r;
   reg o_valid_w, o_valid_r;
   reg o_overflow_w, o_overflow_r;
-  reg [11:0] abs_a_r, abs_b_r;
+  reg signed [11:0] abs_a_r, abs_b_r;
   reg signed [12:0] mean_r;
   reg signed [12:0] sum_r;
   reg signed [12:0] diff_r;
   reg signed [23:0] mult_result_r;
   reg signed [23:0] mac_mult_result_r;
   reg signed [23:0] fixed_format_r;
-  reg signed [23:0] mac_fixed_format_r;
   reg signed [23:0] mac_fixed_format_r;
   reg signed [24:0] prev_accumulator_r;
   reg signed [24:0] accumulator_r;
@@ -37,9 +36,6 @@ module alu (
   assign o_valid = o_valid_r;
   assign o_data = o_data_r;
   assign o_overflow = o_overflow_r;
-  assign abs_a_r = (i_data_a[11] == 1) ? (~i_data_a + 1) : i_data_a;
-  assign abs_b_r = (i_data_b[11] == 1) ? (~i_data_b + 1) : i_data_b;
-  // assign accumulator_r = prev_accumulator_r + mac_fixed_format_r;
   // ---- Add your own wire data assignments here if needed ---- //
 
 
@@ -82,12 +78,12 @@ module alu (
 
         3'b011: begin
           mac_mult_result_r = i_data_a * i_data_b;
-          mac_fixed_format_w = {{12{mac_mult_result_r[16]}}, mac_mult_result_r[16:5]};
+          mac_fixed_format_r = {{12{mac_mult_result_r[16]}}, mac_mult_result_r[16:5]};
           // mac_mult_overflow_w = ({12{fixed_format_r[11]}} != fixed_format_r[23:12]);
           accumulator_r = prev_accumulator_r + mac_fixed_format_r;
           o_data_w = accumulator_r[11:0];
           o_valid_w = 1'b1;
-          o_overflow_w = ({13{accumulator_r[11]}} != fixed_format_r[24:12]);
+          o_overflow_w = ({12{accumulator_r[11]}} != mac_fixed_format_r[23:12]);
         end  // MAC
 
         3'b100: begin
@@ -107,7 +103,9 @@ module alu (
         end  // MEAN
 
         3'b111: begin
-          o_data_w  = (abs_a_r > abs_b_r) ? i_data_a : i_data_b;
+          abs_a_r = (i_data_a[11] == 1'b1) ? (~i_data_a + 1) : i_data_a;
+	  abs_b_r = (i_data_b[11] == 1'b1) ? (~i_data_b + 1) : i_data_b; 
+          o_data_w  = (abs_a_r > abs_b_r) ? abs_a_r : abs_b_r;
           o_valid_w = 1'b1;
         end  // ABSOLUTE MAX
 

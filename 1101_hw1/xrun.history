@@ -1,0 +1,50 @@
+#e1(03Feb2026:17:51:02): source ./xcelium.d/env.d/env.history.03Feb2026_17_51_02
+s1(03Feb2026:17:51:02):  xrun alu.v 
+#e2(03Feb2026:17:54:43): source ./xcelium.d/env.d/env.history.03Feb2026_17_54_43
+s2(03Feb2026:17:54:43):  xrun alu.v 
+#e3(03Feb2026:17:58:14): source ./xcelium.d/env.d/env.history.03Feb2026_17_58_14
+s3(03Feb2026:17:58:14):  xrun alu.v 
+#e4(03Feb2026:17:59:30): source ./xcelium.d/env.d/env.history.03Feb2026_17_59_30
+s4(03Feb2026:17:59:30):  xrun alu.v 
+#e5(03Feb2026:18:01:15): source ./xcelium.d/env.d/env.history.03Feb2026_18_01_15
+s5(03Feb2026:18:01:15):  xrun testbench.v alu.v +define+I0 +access+r 
+#e6(03Feb2026:18:03:20): source ./xcelium.d/env.d/env.history.03Feb2026_18_03_20
+s6(03Feb2026:18:03:20):  xrun testbench.v alu.v +define+I0 +access+r 
+#e7(03Feb2026:18:07:04): source ./xcelium.d/env.d/env.history.03Feb2026_18_07_04
+s7(03Feb2026:18:07:04):  xrun testbench.v alu.v +define+I0 +access+r 
+#e8(03Feb2026:18:10:29): source ./xcelium.d/env.d/env.history.03Feb2026_18_10_29
+s8(03Feb2026:18:10:29):  xrun testbench.v alu.v +define+I0 +access+r 
+#e9(03Feb2026:18:15:49): source ./xcelium.d/env.d/env.history.03Feb2026_18_15_49
+s9(03Feb2026:18:15:49):  xrun testbench.v alu.v +define+I0 +access+r 
+#e10(03Feb2026:18:16:14): source ./xcelium.d/env.d/env.history.03Feb2026_18_16_14
+s10(03Feb2026:18:16:14):  xrun testbench.v alu.v +define+I1 +access+r 
+#e11(03Feb2026:18:16:23): source ./xcelium.d/env.d/env.history.03Feb2026_18_16_23
+s11(03Feb2026:18:16:23):  xrun testbench.v alu.v +define+I2 +access+r 
+#e12(03Feb2026:18:18:24): source ./xcelium.d/env.d/env.history.03Feb2026_18_18_24
+s12(03Feb2026:18:18:24):  xrun testbench.v alu.v +define+I2 +access+r 
+#e13(03Feb2026:18:19:59): source ./xcelium.d/env.d/env.history.03Feb2026_18_19_59
+s13(03Feb2026:18:19:59):  xrun testbench.v alu.v +define+I2 +access+r 
+#e14(04Feb2026:00:43:28): source ./xcelium.d/env.d/env.history.04Feb2026_00_43_28
+s14(04Feb2026:00:43:28):  xrun testbench.v alu.v +define+I3 +access+r 
+#e15(04Feb2026:00:44:00): source ./xcelium.d/env.d/env.history.04Feb2026_00_44_00
+s15(04Feb2026:00:44:00):  xrun testbench.v alu.v +define+I4 +access+r 
+#e16(04Feb2026:00:45:25): source ./xcelium.d/env.d/env.history.04Feb2026_00_45_25
+s16(04Feb2026:00:45:25):  xrun testbench.v alu.v +define+I5 +access+r 
+#e17(04Feb2026:00:46:14): source ./xcelium.d/env.d/env.history.04Feb2026_00_46_14
+s17(04Feb2026:00:46:14):  xrun testbench.v alu.v +define+I6 +access+r 
+#e18(04Feb2026:00:48:28): source ./xcelium.d/env.d/env.history.04Feb2026_00_48_28
+s18(04Feb2026:00:48:28):  xrun testbench.v alu.v +define+I7 +access+r 
+#e19(04Feb2026:00:50:20): source ./xcelium.d/env.d/env.history.04Feb2026_00_50_20
+s19(04Feb2026:00:50:20):  xrun testbench.v alu.v +define+I7 +access+r 
+#e20(04Feb2026:00:54:41): source ./xcelium.d/env.d/env.history.04Feb2026_00_54_41
+s20(04Feb2026:00:54:41):  xrun testbench.v alu.v +define+I7 +access+r 
+#e21(04Feb2026:01:15:39): source ./xcelium.d/env.d/env.history.04Feb2026_01_15_39
+s21(04Feb2026:01:15:39):  xrun testbench.v alu.v +define+I7 +access+r 
+#e22(04Feb2026:01:18:54): source ./xcelium.d/env.d/env.history.04Feb2026_01_18_54
+s22(04Feb2026:01:18:54):  xrun testbench.v alu.v +define+I7 +access+r 
+#e23(04Feb2026:01:20:38): source ./xcelium.d/env.d/env.history.04Feb2026_01_20_38
+s23(04Feb2026:01:20:38):  xrun testbench.v alu.v +define+I7 +access+r 
+#e24(04Feb2026:01:23:59): source ./xcelium.d/env.d/env.history.04Feb2026_01_23_59
+s24(04Feb2026:01:23:59):  xrun testbench.v alu.v +define+I7 +access+r 
+#e25(04Feb2026:01:24:26): source ./xcelium.d/env.d/env.history.04Feb2026_01_24_26
+s25(04Feb2026:01:24:26):  xrun testbench.v alu.v +define+I8 +access+r 

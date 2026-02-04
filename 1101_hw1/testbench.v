@@ -99,8 +99,8 @@ module tb;
     initial i_clk = 0;
     always #(`CYCLE/2.0) i_clk = ~i_clk; 
     initial begin
-        $fsdbDumpfile("tb.fsdb");
-        $fsdbDumpvars(0, tb, "+mda");
+        $dumpfile("tb.vcd");
+        $dumpvars(0, tb);
     end
 
     initial begin

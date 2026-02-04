@@ -1,0 +1,68 @@
+xrun(64): 24.03-s013: (c) Copyright 1995-2025 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	24.03-s013: Started on Feb 04, 2026 at 01:24:26 EST
+xrun
+	testbench.v
+	alu.v
+	+define+I8
+	+access+r
+file: testbench.v
+	module worklib.tb:v
+		errors: 0, warnings: 0
+file: alu.v
+	module worklib.alu:v
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		tb
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.alu:v <0x7a14eef6>
+			streams:   6, words:  6044
+		worklib.tb:v <0x40ec5311>
+			streams:   9, words: 19817
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                 Instances  Unique
+		Modules:                 2       2
+		Registers:              33      33
+		Scalar wires:            5       -
+		Vectored wires:          4       -
+		Always blocks:           3       3
+		Initial blocks:          6       6
+		Cont. assignments:       0       3
+		Pseudo assignments:      1       -
+		Simulation timescale:  1ps
+	Writing initial simulation snapshot: worklib.tb:v
+Loading snapshot worklib.tb:v .................... Done
+xcelium> source /CMC/tools/cadence/XCELIUMMAIN24.03.013_lnx86/tools/xcelium/files/xmsimrc
+xcelium> run
+Test[          0]: Correct!
+Test[          1]: Correct!
+Test[          2]: Error! Inst=010, A=101111011011, B=111101111010, Out=(1, 100010101101), yours=(0, 000101011010)
+Test[          3]: Correct!
+Test[          4]: Error! Inst=011, A=000000111111, B=111101101111, Out=(0, 110100001001), yours=(0, 111011100010)
+Test[          5]: Error! Inst=011, A=111100111001, B=111111101011, Out=(0, 110110001100), yours=(0, 000010000010)
+Test[          6]: Correct!
+Test[          7]: Correct!
+Test[          8]: Correct!
+Test[          9]: Correct!
+Test[         10]: Correct!
+Test[         11]: Correct!
+Test[         12]: Error! Inst=011, A=000001000100, B=000011101000, Out=(0, 000011111011), yours=(0, 000111101101)
+Test[         13]: Error! Inst=011, A=111110000100, B=111110101010, Out=(0, 001001001000), yours=(0, 000101001101)
+Test[         14]: Error! Inst=011, A=111100001110, B=111111110000, Out=(0, 001011000001), yours=(0, 000001111001)
+Test[         15]: Error! Inst=011, A=111100111100, B=111100001011, Out=(1, 100010011110), yours=(0, 010111011100)
+Test[         16]: Error! Inst=011, A=000011001011, B=000011001111, Out=(1, 110110111111), yours=(0, 010100100001)
+Test[         17]: Correct!
+Test[         18]: Correct!
+Test[         19]: Correct!
+Pattern: ./pattern/INST8_I.dat
+----------------------------------------------
+  Wrong! Total error:           8                      
+----------------------------------------------
+Simulation complete via $finish(1) at time 360 NS + 0
+./testbench.v:174         $finish;
+xcelium> exit
+TOOL:	xrun(64)	24.03-s013: Exiting on Feb 04, 2026 at 01:24:27 EST  (total: 00:00:01)
