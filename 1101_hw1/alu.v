@@ -27,6 +27,8 @@ module alu (
   reg signed [24:0] prev_accumulator_r;
   reg signed [24:0] accumulator_r;
   reg signed [24:0] rounded_r;
+  reg signed [24:0] mac_rounded_r;
+
 
   // ---- Add your own wires and registers here if needed ---- //
 
@@ -71,20 +73,21 @@ module alu (
 
         3'b010: begin
           mult_result_r = i_data_a * i_data_b;
-          rounded_r = mult_result_r + ((mult_result_r[23]) ? -25'd16 : 25'd16);
-          fixed_format_r = {{12{rounded_r[16]}}, rounded_r[16:5]};  //sign extend and shift by 5
-          o_data_w = fixed_format_r[11:0];
+          rounded_r = mult_result_r + 25'd16;
+          fixed_format_r = {{5{rounded_r[23]}}, rounded_r[23:5]};  //sign extend and shift by 5
           o_valid_w = 1'b1;
           o_overflow_w = ({12{fixed_format_r[11]}} != fixed_format_r[23:12]);
+          o_data_w = fixed_format_r[11:0];
         end  // MULTIPLY
 
         3'b011: begin
           mac_mult_result_r = i_data_a * i_data_b;
-          mac_fixed_format_r = {{12{mac_mult_result_r[16]}}, mac_mult_result_r[16:5]};
+	  mac_rounded_r = mac_mult_result_r + 25'd16;
+          mac_fixed_format_r = {{5{mac_rounded_r[23]}}, mac_rounded_r[16:5]};
           accumulator_r = prev_accumulator_r + mac_fixed_format_r;
           o_data_w = accumulator_r[11:0];
           o_valid_w = 1'b1;
-          o_overflow_w = ({12{accumulator_r[11]}} != mac_fixed_format_r[23:12]);
+          o_overflow_w = ({12{mac_fixed_format_r[11]}} != mac_fixed_format_r[23:12]);
         end  // MAC
 
         3'b100: begin
