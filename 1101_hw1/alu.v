@@ -26,6 +26,7 @@ module alu (
   reg signed [23:0] mac_fixed_format_r;
   reg signed [24:0] prev_accumulator_r;
   reg signed [24:0] accumulator_r;
+  reg signed [24:0] rounded_r;
 
   // ---- Add your own wires and registers here if needed ---- //
 
@@ -70,7 +71,8 @@ module alu (
 
         3'b010: begin
           mult_result_r = i_data_a * i_data_b;
-          fixed_format_r = {{12{mult_result_r[16]}}, mult_result_r[16:5]};  //sign extend and shift by 5
+          rounded_r = mult_result_r + ((mult_result_r[23]) ? -25'd16 : 25'd16);
+          fixed_format_r = {{12{rounded_r[16]}}, rounded_r[16:5]};  //sign extend and shift by 5
           o_data_w = fixed_format_r[11:0];
           o_valid_w = 1'b1;
           o_overflow_w = ({12{fixed_format_r[11]}} != fixed_format_r[23:12]);
@@ -79,7 +81,6 @@ module alu (
         3'b011: begin
           mac_mult_result_r = i_data_a * i_data_b;
           mac_fixed_format_r = {{12{mac_mult_result_r[16]}}, mac_mult_result_r[16:5]};
-          // mac_mult_overflow_w = ({12{fixed_format_r[11]}} != fixed_format_r[23:12]);
           accumulator_r = prev_accumulator_r + mac_fixed_format_r;
           o_data_w = accumulator_r[11:0];
           o_valid_w = 1'b1;
@@ -103,8 +104,8 @@ module alu (
         end  // MEAN
 
         3'b111: begin
-          abs_a_r = (i_data_a[11] == 1'b1) ? (~i_data_a + 1) : i_data_a;
-	  abs_b_r = (i_data_b[11] == 1'b1) ? (~i_data_b + 1) : i_data_b; 
+          abs_a_r   = (i_data_a[11] == 1'b1) ? (~i_data_a + 1) : i_data_a;
+          abs_b_r   = (i_data_b[11] == 1'b1) ? (~i_data_b + 1) : i_data_b;
           o_data_w  = (abs_a_r > abs_b_r) ? abs_a_r : abs_b_r;
           o_valid_w = 1'b1;
         end  // ABSOLUTE MAX
