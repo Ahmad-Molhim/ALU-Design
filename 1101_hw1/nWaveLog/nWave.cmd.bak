@@ -1,0 +1,19 @@
+wvConvertFile -win $_nWave1 -o \
+           "/home/v72211/miniProject1/ALU-Design/1101_hw1/tb.vcd.fsdb" \
+           "tb.vcd"
+wvSetPosition -win $_nWave1 {("G1" 0)}
+wvOpenFile -win $_nWave1 \
+           {/home/v72211/miniProject1/ALU-Design/1101_hw1/tb.vcd.fsdb}
+wvRestoreSignal -win $_nWave1 "I8_signals.rc" -overWriteAutoAlias on \
+           -appendSignals on
+wvZoom -win $_nWave1 0.000000 363600.000000
+wvSetPosition -win $_nWave1 {("G1" 0)}
+wvSetPosition -win $_nWave1 {("G2" 0)}
+wvGetSignalSetScope -win $_nWave1 "/tb"
+wvGetSignalSetScope -win $_nWave1 "/tb/u_alu"
+wvSetPosition -win $_nWave1 {("G2" 0)}
+wvSetPosition -win $_nWave1 {("G1" 22)}
+wvZoom -win $_nWave1 0.000000 363600.000000
+wvSetPosition -win $_nWave1 {("G1" 22)}
+nMemSetPreference
+verdiSetActWin -win $_nWave1

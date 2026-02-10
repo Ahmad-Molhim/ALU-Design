@@ -1,0 +1,68 @@
+xmverilog(64): 24.03-s013: (c) Copyright 1995-2025 Cadence Design Systems, Inc.
+TOOL:	xmverilog	24.03-s013: Started on Feb 09, 2026 at 15:03:02 EST
+ncverilog
+	testbench.v
+	alu.v
+	+define+I8
+	+access+r
+xmverilog: *W,NCEXDEP: Executable (ncverilog) is deprecated. Use (xmverilog) instead.
+file: testbench.v
+	module worklib.tb:v
+		errors: 0, warnings: 0
+file: alu.v
+	module worklib.alu:v
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.alu:v <0x3735693d>
+			streams:   4, words:  7115
+		worklib.tb:v <0x40ec5311>
+			streams:   9, words: 19817
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                 Instances  Unique
+		Modules:                 2       2
+		Registers:              39      39
+		Scalar wires:            5       -
+		Vectored wires:          4       -
+		Always blocks:           3       3
+		Initial blocks:          6       6
+		Cont. assignments:       0       3
+		Pseudo assignments:      1       -
+		Process Clocks:          1       1
+		Simulation timescale:  1ps
+	Writing initial simulation snapshot: worklib.tb:v
+Loading snapshot worklib.tb:v .................... Done
+xcelium> source /CMC/tools/cadence/XCELIUMMAIN24.03.013_lnx86/tools/xcelium/files/xmsimrc
+xcelium> run
+Test[          0]: Correct!
+Test[          1]: Correct!
+Test[          2]: Correct!
+Test[          3]: Correct!
+Test[          4]: Correct!
+Test[          5]: Correct!
+Test[          6]: Correct!
+Test[          7]: Correct!
+Test[          8]: Correct!
+Test[          9]: Correct!
+Test[         10]: Correct!
+Test[         11]: Correct!
+Test[         12]: Correct!
+Test[         13]: Correct!
+Test[         14]: Correct!
+Test[         15]: Correct!
+Test[         16]: Correct!
+Test[         17]: Correct!
+Test[         18]: Correct!
+Test[         19]: Correct!
+Pattern: ./pattern/INST8_I.dat
+----------------------------------------------
+-                 ALL PASS!                  -
+----------------------------------------------
+Simulation complete via $finish(1) at time 360 NS + 0
+./testbench.v:174         $finish;
+xcelium> exit
+TOOL:	xmverilog	24.03-s013: Exiting on Feb 09, 2026 at 15:03:03 EST  (total: 00:00:01)

@@ -1,5 +1,5 @@
 //
-// File created by:  xrun
+// File created by:  xmverilog
 // Do not modify this file
 //
 -XLMODE
@@ -8,7 +8,7 @@
 testbench.v
 alu.v
 -DEFINE
-I3
+I8
 -CDSLIB
 ./xcelium.d/run.lnx8664.24.03.d/cdsrun.lib
 -HDLVAR

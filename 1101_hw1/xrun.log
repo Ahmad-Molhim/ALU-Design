@@ -1,10 +1,13 @@
 xrun(64): 24.03-s013: (c) Copyright 1995-2025 Cadence Design Systems, Inc.
-TOOL:	xrun(64)	24.03-s013: Started on Feb 05, 2026 at 18:07:16 EST
+TOOL:	xrun(64)	24.03-s013: Started on Feb 06, 2026 at 00:57:35 EST
 xrun
 	testbench.v
 	alu.v
-	+define+I3
+	+define+I2
 	+access+r
+file: testbench.v
+	module worklib.tb:v
+		errors: 0, warnings: 0
 file: alu.v
 	module worklib.alu:v
 		errors: 0, warnings: 0
@@ -14,16 +17,16 @@ file: alu.v
 		tb
 	Building instance overlay tables: .................... Done
 	Generating native compiled code:
-		worklib.alu:v <0x664be1a2>
-			streams:   6, words:  6316
-		worklib.tb:v <0x4f351282>
+		worklib.alu:v <0x15dd644e>
+			streams:   6, words:  6317
+		worklib.tb:v <0x40ec5311>
 			streams:   9, words: 19817
 	Building instance specific data structures.
 	Loading native compiled code:     .................... Done
 	Design hierarchy summary:
 		                 Instances  Unique
 		Modules:                 2       2
-		Registers:              35      35
+		Registers:              36      36
 		Scalar wires:            5       -
 		Vectored wires:          4       -
 		Always blocks:           3       3
@@ -36,15 +39,30 @@ Loading snapshot worklib.tb:v .................... Done
 xcelium> source /CMC/tools/cadence/XCELIUMMAIN24.03.013_lnx86/tools/xcelium/files/xmsimrc
 xcelium> run
 Test[          0]: Correct!
-Test[          1]: Error! Inst=011, A=000011001010, B=111101001001, Out=(0, 000001001011), yours=(1, 101101111101)
-Test[          2]: Error! Inst=011, A=000011000000, B=111100101101, Out=(0, 101101011001), yours=(1, 101100001110)
+Test[          1]: Correct!
+Test[          2]: Correct!
 Test[          3]: Correct!
-Test[          4]: Error! Inst=011, A=000010111010, B=000010011010, Out=(1, 101010000111), yours=(0, 001101111111)
-Pattern: ./pattern/INST3_I.dat
+Test[          4]: Correct!
+Test[          5]: Correct!
+Test[          6]: Correct!
+Test[          7]: Correct!
+Test[          8]: Correct!
+Test[          9]: Correct!
+Test[         10]: Correct!
+Test[         11]: Correct!
+Test[         12]: Correct!
+Test[         13]: Correct!
+Test[         14]: Correct!
+Test[         15]: Correct!
+Test[         16]: Correct!
+Test[         17]: Correct!
+Test[         18]: Correct!
+Test[         19]: Correct!
+Pattern: ./pattern/INST2_I.dat
 ----------------------------------------------
-  Wrong! Total error:           3                      
+-                 ALL PASS!                  -
 ----------------------------------------------
-Simulation complete via $finish(1) at time 110 NS + 0
+Simulation complete via $finish(1) at time 360 NS + 0
 ./testbench.v:174         $finish;
 xcelium> exit
-TOOL:	xrun(64)	24.03-s013: Exiting on Feb 05, 2026 at 18:07:18 EST  (total: 00:00:02)
+TOOL:	xrun(64)	24.03-s013: Exiting on Feb 06, 2026 at 00:57:36 EST  (total: 00:00:01)
