@@ -1,14 +1,14 @@
 xmverilog(64): 24.03-s013: (c) Copyright 1995-2025 Cadence Design Systems, Inc.
-TOOL:	xmverilog	24.03-s013: Started on Feb 09, 2026 at 15:03:02 EST
+TOOL:	xmverilog	24.03-s013: Started on Feb 10, 2026 at 10:51:26 EST
 ncverilog
 	testbench.v
 	alu.v
-	+define+I8
+	+define+I7
 	+access+r
 xmverilog: *W,NCEXDEP: Executable (ncverilog) is deprecated. Use (xmverilog) instead.
-file: testbench.v
-	module worklib.tb:v
-		errors: 0, warnings: 0
+Recompiling... reason: file './alu.v' is newer than expected.
+	expected: Tue Feb 10 10:43:39 2026
+	actual:   Tue Feb 10 10:51:23 2026
 file: alu.v
 	module worklib.alu:v
 		errors: 0, warnings: 0
@@ -17,9 +17,7 @@ file: alu.v
 	Building instance overlay tables: .................... Done
 	Generating native compiled code:
 		worklib.alu:v <0x3735693d>
-			streams:   4, words:  7115
-		worklib.tb:v <0x40ec5311>
-			streams:   9, words: 19817
+			streams:   4, words:  7111
 	Building instance specific data structures.
 	Loading native compiled code:     .................... Done
 	Design hierarchy summary:
@@ -58,11 +56,11 @@ Test[         16]: Correct!
 Test[         17]: Correct!
 Test[         18]: Correct!
 Test[         19]: Correct!
-Pattern: ./pattern/INST8_I.dat
+Pattern: ./pattern/INST7_I.dat
 ----------------------------------------------
 -                 ALL PASS!                  -
 ----------------------------------------------
 Simulation complete via $finish(1) at time 360 NS + 0
 ./testbench.v:174         $finish;
 xcelium> exit
-TOOL:	xmverilog	24.03-s013: Exiting on Feb 09, 2026 at 15:03:03 EST  (total: 00:00:01)
+TOOL:	xmverilog	24.03-s013: Exiting on Feb 10, 2026 at 10:51:27 EST  (total: 00:00:01)

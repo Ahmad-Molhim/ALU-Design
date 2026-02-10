@@ -8,7 +8,7 @@
 testbench.v
 alu.v
 -DEFINE
-I8
+I7
 -CDSLIB
 ./xcelium.d/run.lnx8664.24.03.d/cdsrun.lib
 -HDLVAR

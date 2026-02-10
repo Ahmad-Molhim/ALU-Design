@@ -324,13 +324,13 @@ ColorPrint = FALSE
 [QtDialog]
 openFileDlg = 332,246,602,483
 QwInfoMsgDlg = 255,248,750,250
-QwUserAskDlg = 477,280,324,134
 HighlightValueDialog_SaveHighlightValueReport = 344,261,590,340
 HighlightValueDialog_RestoreHighlightValueReport = 344,261,590,340
 HighlightValueDialog = 429,236,400,300
-unknownSave = 409,314,461,245
 QwQuestionMsgDlg = 468,316,324,114
+unknownSave = 409,314,461,245
 qWaveSignalDialog = 239,191,800,479
+QwUserAskDlg = 478,365,324,134
 saveSigDlg = 363,238,551,386
 [Session Cache]
 1 = string (session file name)

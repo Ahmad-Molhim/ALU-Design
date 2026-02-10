@@ -4,5 +4,5 @@
 //
 testbench.v
 alu.v
-+define+I8
++define+I7
 +access+r

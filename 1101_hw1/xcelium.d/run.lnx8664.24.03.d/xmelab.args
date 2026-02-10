@@ -2,7 +2,7 @@
 // File created by:  xmverilog
 // Do not modify this file
 //
-+define+I8
++define+I7
 +access+r
 -noshowtop
 -ACCESS

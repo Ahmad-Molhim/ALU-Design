@@ -1,4 +1,4 @@
-Command Line: /CMC/tools/synopsys/verdi_vS-2021.09-SP1-1/verdi/S-2021.09-SP1-1/platform/LINUXAMD64/bin/Novas -nWave -ssf tb.vcd -sswr I8_signals.rc
+Command Line: /CMC/tools/synopsys/verdi_vS-2021.09-SP1-1/verdi/S-2021.09-SP1-1/platform/LINUXAMD64/bin/Novas -nWave -ssf tb.vcd -sswr I7_signals.rc
 uname(Linux vcl-vm0-174 4.18.0-553.27.1.el8_10.x86_64 #1 SMP Wed Nov 6 14:29:02 UTC 2024 x86_64)
 Disabled AskUser3 Message (Response 0): /home/v72211/miniProject1/ALU-Design/1101_hw1/tb.vcd.fsdb exists, overwrite it ?
-au time 55474.037394 332.251000 515.614958 delta 202108928 202108928 total 707559424 707559424
+au time 324.703969 3.253179 2.994851 delta 201523200 201523200 total 706973696 706973696
