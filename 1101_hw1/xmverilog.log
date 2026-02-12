@@ -1,14 +1,14 @@
 xmverilog(64): 24.03-s013: (c) Copyright 1995-2025 Cadence Design Systems, Inc.
-TOOL:	xmverilog	24.03-s013: Started on Feb 10, 2026 at 10:51:26 EST
+TOOL:	xmverilog	24.03-s013: Started on Feb 11, 2026 at 20:14:45 EST
 ncverilog
 	testbench.v
 	alu.v
-	+define+I7
+	+define+I8
 	+access+r
 xmverilog: *W,NCEXDEP: Executable (ncverilog) is deprecated. Use (xmverilog) instead.
-Recompiling... reason: file './alu.v' is newer than expected.
-	expected: Tue Feb 10 10:43:39 2026
-	actual:   Tue Feb 10 10:51:23 2026
+file: testbench.v
+	module worklib.tb:v
+		errors: 0, warnings: 0
 file: alu.v
 	module worklib.alu:v
 		errors: 0, warnings: 0
@@ -16,8 +16,10 @@ file: alu.v
 	Elaborating the design hierarchy:
 	Building instance overlay tables: .................... Done
 	Generating native compiled code:
-		worklib.alu:v <0x3735693d>
-			streams:   4, words:  7111
+		worklib.alu:v <0x6fdd64a7>
+			streams:   6, words:  8363
+		worklib.tb:v <0x17437ba9>
+			streams:   9, words: 19817
 	Building instance specific data structures.
 	Loading native compiled code:     .................... Done
 	Design hierarchy summary:
@@ -30,7 +32,7 @@ file: alu.v
 		Initial blocks:          6       6
 		Cont. assignments:       0       3
 		Pseudo assignments:      1       -
-		Process Clocks:          1       1
+		Process Clocks:          2       2
 		Simulation timescale:  1ps
 	Writing initial simulation snapshot: worklib.tb:v
 Loading snapshot worklib.tb:v .................... Done
@@ -56,11 +58,11 @@ Test[         16]: Correct!
 Test[         17]: Correct!
 Test[         18]: Correct!
 Test[         19]: Correct!
-Pattern: ./pattern/INST7_I.dat
+Pattern: ./pattern/INST8_I.dat
 ----------------------------------------------
 -                 ALL PASS!                  -
 ----------------------------------------------
 Simulation complete via $finish(1) at time 360 NS + 0
 ./testbench.v:174         $finish;
 xcelium> exit
-TOOL:	xmverilog	24.03-s013: Exiting on Feb 10, 2026 at 10:51:27 EST  (total: 00:00:01)
+TOOL:	xmverilog	24.03-s013: Exiting on Feb 11, 2026 at 20:14:45 EST  (total: 00:00:00)

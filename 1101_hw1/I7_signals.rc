@@ -17,11 +17,14 @@ signalSpacing 5
 ; windowTimeUnit is used for zoom, cursor & marker
 ; waveform viewport range
 zoom 0.000000 363600.000000
-cursor 40000.000000
+cursor 50000.000000
 marker 0.000000
 
 ; user define markers
 ; userMarker time_pos marker_name color linestyle
+userMarker 280357.582 M2 ID_GREEN5 long_dashed
+userMarker 150000 M1 ID_GREEN5 long_dashed
+
 ; visible top row signal index
 top 0
 ; marker line index
@@ -56,16 +59,12 @@ addSignal -h 15 /tb/u_alu/i_clk
 addSignal -h 15 -holdScope i_rst_n
 addSignal -h 15 -holdScope i_valid
 addSignal -h 15 -holdScope i_inst[2:0]
-addSignal -h 15 -holdScope i_data_a[11:0]
-addSignal -h 15 -holdScope i_data_b[11:0]
-addSignal -h 15 -holdScope abs_a_r[11:0]
-addSignal -h 15 -holdScope abs_b_r[11:0]
-addSignal -h 15 -holdScope o_data_r[11:0]
-addSignal -h 15 -holdScope o_data_w[11:0]
-addSignal -h 15 -UNSIGNED -BIN -holdScope o_data[11:0]
+addSignal -h 15 -2COMP -UDEC -holdScope i_data_a[11:0]
+addSignal -h 15 -2COMP -UDEC -holdScope i_data_b[11:0]
+addSignal -h 15 -2COMP -UDEC -holdScope abs_a_w[11:0]
+addSignal -h 15 -2COMP -UDEC -holdScope abs_b_w[11:0]
+addSignal -h 15 -2COMP -UDEC -holdScope o_data[11:0]
 addSignal -h 15 -holdScope o_valid
-addSignal -h 15 -holdScope o_valid_r
-addSignal -h 15 -holdScope o_valid_w
 addGroup "G2"
 
 ; getSignalForm Scope Hierarchy Status

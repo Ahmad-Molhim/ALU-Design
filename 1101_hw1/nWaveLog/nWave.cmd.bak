@@ -4,58 +4,37 @@ wvConvertFile -win $_nWave1 -o \
 wvSetPosition -win $_nWave1 {("G1" 0)}
 wvOpenFile -win $_nWave1 \
            {/home/v72211/miniProject1/ALU-Design/1101_hw1/tb.vcd.fsdb}
-wvRestoreSignal -win $_nWave1 "I7_signals.rc" -overWriteAutoAlias on \
+wvRestoreSignal -win $_nWave1 "I8_signals.rc" -overWriteAutoAlias on \
            -appendSignals on
 wvZoom -win $_nWave1 0.000000 363600.000000
-wvHighlightValue  -win $_nWave1 -value 1111_1111_0110_1111_1010_1010 -color \
-           ID_YELLOW5
-wvHighlightValue  -win $_nWave1 -value 1111_1111_0110_1111_1010_1010 -highlight T
-wvSetPosition -win $_nWave1 {("G1" 0)}
-wvSetPosition -win $_nWave1 {("G2" 0)}
+wvSetPosition -win $_nWave1 {("INPUTS" 0)}
+wvSetPosition -win $_nWave1 {("ADD" 0)}
+wvSetPosition -win $_nWave1 {("ADD" 0)}
+wvSetPosition -win $_nWave1 {("SUBTRACT" 0)}
+wvSetPosition -win $_nWave1 {("SUBTRACT" 0)}
+wvSetPosition -win $_nWave1 {("MULTIPLY" 0)}
+wvSetPosition -win $_nWave1 {("MULTIPLY" 0)}
+wvSetPosition -win $_nWave1 {("MAC" 0)}
+wvSetPosition -win $_nWave1 {("MAC" 0)}
+wvSetPosition -win $_nWave1 {("o_overflow" 0)}
+wvSetPosition -win $_nWave1 {("o_overflow" 0)}
+wvSetPosition -win $_nWave1 {("XNOR" 0)}
+wvSetPosition -win $_nWave1 {("XNOR" 0)}
+wvSetPosition -win $_nWave1 {("o_valid" 0)}
+wvSetPosition -win $_nWave1 {("o_valid" 0)}
+wvSetPosition -win $_nWave1 {("ReLU" 0)}
+wvSetPosition -win $_nWave1 {("ReLU" 0)}
+wvSetPosition -win $_nWave1 {("MEAN" 0)}
+wvSetPosition -win $_nWave1 {("MEAN" 0)}
+wvSetPosition -win $_nWave1 {("ABS MAX" 0)}
+wvSetPosition -win $_nWave1 {("ABS MAX" 0)}
+wvSetPosition -win $_nWave1 {("G12" 0)}
 wvGetSignalSetScope -win $_nWave1 "/tb"
 wvGetSignalSetScope -win $_nWave1 "/tb/u_alu"
-wvSetPosition -win $_nWave1 {("G2" 0)}
-wvSetPosition -win $_nWave1 {("G1" 8)}
+wvSetPosition -win $_nWave1 {("G12" 0)}
+wvSetPosition -win $_nWave1 {("INPUTS" 3)}
 wvZoom -win $_nWave1 0.000000 363600.000000
-wvSetPosition -win $_nWave1 {("G1" 8)}
+wvSetPosition -win $_nWave1 {("INPUTS" 3)}
 nMemSetPreference
 verdiSetActWin -win $_nWave1
-wvSetCursor -win $_nWave1 39278.889990 -snap {("G1" 6)}
-wvSetCursor -win $_nWave1 354230.723489 -snap {("G1" 12)}
-wvSetCursor -win $_nWave1 43242.814668 -snap {("G1" 6)}
-wvSelectSignal -win $_nWave1 {( "G1" 6 )} 
-wvSelectSignal -win $_nWave1 {( "G1" 7 )} 
-wvSelectSignal -win $_nWave1 {( "G1" 5 )} 
-wvSetPosition -win $_nWave1 {("G1" 5)}
-wvSetPosition -win $_nWave1 {("G1" 6)}
-wvSetPosition -win $_nWave1 {("G1" 7)}
-wvSetPosition -win $_nWave1 {("G1" 6)}
-wvSetPosition -win $_nWave1 {("G1" 5)}
-wvMoveSelected -win $_nWave1
-wvSetPosition -win $_nWave1 {("G1" 5)}
-wvSelectSignal -win $_nWave1 {( "G1" 10 )} 
-wvSelectGroup -win $_nWave1 {G2}
-wvSelectSignal -win $_nWave1 {( "G1" 5 6 7 8 9 10 11 )} 
-wvSelectSignal -win $_nWave1 {( "G1" 5 6 7 8 9 10 11 )} 
-wvSetRadix -win $_nWave1 -format UDec
-wvSetCursor -win $_nWave1 76035.282458 -snap {("G2" 0)}
-wvSelectSignal -win $_nWave1 {( "G1" 7 )} 
-wvSelectSignal -win $_nWave1 {( "G1" 5 6 7 8 )} 
-wvSelectSignal -win $_nWave1 {( "G1" 8 )} 
-wvSelectGroup -win $_nWave1 {G2}
-wvSelectSignal -win $_nWave1 {( "G1" 5 6 7 8 )} 
-wvSetPosition -win $_nWave1 {("G1" 8)}
-wvSetPosition -win $_nWave1 {("G1" 9)}
-wvSetPosition -win $_nWave1 {("G1" 10)}
-wvSetPosition -win $_nWave1 {("G1" 9)}
-wvSetPosition -win $_nWave1 {("G1" 8)}
-wvSetPosition -win $_nWave1 {("G1" 7)}
-wvMoveSelected -win $_nWave1
-wvSetPosition -win $_nWave1 {("G1" 7)}
-wvSetPosition -win $_nWave1 {("G1" 8)}
-wvSelectSignal -win $_nWave1 {( "G1" 7 )} 
-wvSelectGroup -win $_nWave1 {G2}
-wvSelectSignal -win $_nWave1 {( "G1" 5 6 7 8 9 10 11 )} 
-wvSetRadix -win $_nWave1 -2Com
-wvSetCursor -win $_nWave1 55134.588702 -snap {("G2" 0)}
 wvExit

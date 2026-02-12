@@ -17,7 +17,7 @@ signalSpacing 5
 ; windowTimeUnit is used for zoom, cursor & marker
 ; waveform viewport range
 zoom 0.000000 111100.000000
-cursor 40000.000000
+cursor 45000.000000
 marker 0.000000
 
 ; user define markers
@@ -25,7 +25,7 @@ marker 0.000000
 ; visible top row signal index
 top 0
 ; marker line index
-markerPos 14
+markerPos 12
 
 ; event list
 ; addEvent event_name event_expression
@@ -56,18 +56,20 @@ addSignal -h 15 /tb/u_alu/i_clk
 addSignal -h 15 -holdScope i_rst_n
 addSignal -h 15 -holdScope i_valid
 addSignal -h 15 -holdScope i_inst[2:0]
-addSignal -h 15 -holdScope i_data_a[11:0]
-addSignal -h 15 -holdScope i_data_b[11:0]
-addSignal -expanded -h 15 -UNSIGNED -BIN -holdScope mac_mult_result_r[23:0]
-addSignal -h 15 -UNSIGNED -BIN -holdScope mac_rounded_r[24:0]
-addSignal -h 15 -UNSIGNED -BIN -holdScope mac_fixed_format_r[23:0]
-addSignal -h 15 -UNSIGNED -BIN -holdScope accumulator_r[12:0]
-addSignal -h 15 -UNSIGNED -BIN -holdScope prev_accumulator_r[12:0]
+addSignal -h 15 -2COMP -UDEC -holdScope i_data_a[11:0]
+addSignal -h 15 -2COMP -UDEC -holdScope i_data_b[11:0]
+addSignal -h 15 -2COMP -UDEC -holdScope mac_mult_result_w[23:0]
+addSignal -h 15 -2COMP -UDEC -holdScope mac_rounded_w[24:0]
+addSignal -h 15 -2COMP -UDEC -holdScope mac_fixed_format_w[23:0]
+addSignal -h 15 -2COMP -UDEC -holdScope accumulator_w[12:0]
+addSignal -h 15 -2COMP -UDEC -holdScope prev_accumulator_r[12:0]
+addSignal -h 15 -2COMP -UDEC -holdScope o_data[11:0]
 addSignal -h 15 -holdScope mac_overflow_res_w
 addSignal -h 15 -holdScope prev_overflow_r
 addSignal -h 15 -holdScope o_overflow
-addSignal -h 15 -UNSIGNED -BIN -holdScope o_data[11:0]
+addSignal -h 15 -holdScope o_valid
 addGroup "G2"
+addGroup "G3"
 
 ; getSignalForm Scope Hierarchy Status
 ; active file of getSignalForm

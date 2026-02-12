@@ -17,7 +17,7 @@ signalSpacing 5
 ; windowTimeUnit is used for zoom, cursor & marker
 ; waveform viewport range
 zoom 0.000000 363600.000000
-cursor 80000.000000
+cursor 285000.000000
 marker 0.000000
 
 ; user define markers
@@ -25,7 +25,7 @@ marker 0.000000
 ; visible top row signal index
 top 0
 ; marker line index
-markerPos 22
+markerPos 3
 
 ; event list
 ; addEvent event_name event_expression
@@ -45,7 +45,7 @@ COMPLEX_EVENT_END
 curSTATUS ByChange
 
 
-addGroup "G1"
+addGroup "INPUTS" -e FALSE
 activeDirFile "" "/home/v72211/miniProject1/ALU-Design/1101_hw1/tb.vcd.fsdb"
 addSignal -h 15 /tb/u_alu/i_clk
 addSignal -h 15 -holdScope i_rst_n
@@ -53,23 +53,42 @@ addSignal -h 15 -holdScope i_valid
 addSignal -h 15 -2COMP -UDEC -holdScope i_data_a[11:0]
 addSignal -h 15 -2COMP -UDEC -holdScope i_data_b[11:0]
 addSignal -h 15 -holdScope i_inst[2:0]
-addSignal -h 15 -2COMP -UDEC -holdScope mac_mult_result_r[23:0]
-addSignal -h 15 -2COMP -UDEC -holdScope mac_rounded_r[24:0]
-addSignal -h 15 -2COMP -UDEC -holdScope mac_fixed_format_r[23:0]
-addSignal -h 15 -2COMP -UDEC -holdScope accumulator_r[12:0]
-addSignal -h 15 -2COMP -UDEC -holdScope prev_accumulator_r[12:0]
-addSignal -h 15 -holdScope mac_overflow_res_w
-addSignal -h 15 -holdScope prev_overflow_w
-addSignal -h 15 -holdScope o_overflow_r
-addSignal -h 15 -holdScope o_overflow
-addSignal -h 15 -holdScope o_overflow_w
-addSignal -h 15 -holdScope o_valid
-addSignal -h 15 -holdScope o_valid_r
-addSignal -h 15 -holdScope o_valid_w
-addSignal -h 15 -2COMP -UDEC -holdScope o_data_w[11:0]
-addSignal -h 15 -2COMP -UDEC -holdScope o_data_r[11:0]
+addGroup "ADD" -e FALSE
+addSignal -h 15 /tb/u_alu/sum_w[12:0]
 addSignal -h 15 -2COMP -UDEC -holdScope o_data[11:0]
-addGroup "G2"
+addGroup "SUBTRACT" -e FALSE
+addSignal -h 15 /tb/u_alu/diff_w[12:0]
+addSignal -h 15 -2COMP -UDEC -holdScope o_data[11:0]
+addGroup "MULTIPLY" -e FALSE
+addSignal -h 15 /tb/u_alu/mult_result_w[23:0]
+addSignal -h 15 -holdScope rounded_w[24:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope fixed_format_w[23:0]
+addSignal -h 15 -2COMP -UDEC -holdScope o_data[11:0]
+addGroup "MAC" -e FALSE
+addSignal -h 15 /tb/u_alu/mac_mult_result_w[23:0]
+addSignal -h 15 -holdScope mac_rounded_w[24:0]
+addSignal -h 15 -holdScope mac_fixed_format_w[23:0]
+addSignal -h 15 -holdScope accumulator_w[12:0]
+addSignal -h 15 -2COMP -UDEC -holdScope prev_accumulator_r[12:0]
+addSignal -h 15 -2COMP -UDEC -holdScope o_data[11:0]
+addGroup "o_overflow" -e FALSE
+addSignal -h 15 /tb/u_alu/mac_overflow_res_w
+addSignal -h 15 -holdScope prev_overflow_r
+addSignal -h 15 -holdScope o_overflow
+addGroup "XNOR" -e FALSE
+addSignal -h 15 -2COMP -UDEC /tb/u_alu/o_data[11:0]
+addGroup "o_valid" -e FALSE
+addSignal -h 15 /tb/u_alu/o_valid_w
+addGroup "ReLU" -e FALSE
+addSignal -h 15 -2COMP -UDEC /tb/u_alu/o_data[11:0]
+addGroup "MEAN" -e FALSE
+addSignal -h 15 /tb/u_alu/mean_w[12:0]
+addSignal -h 15 -2COMP -UDEC -holdScope o_data[11:0]
+addGroup "ABS MAX" -e FALSE
+addSignal -h 15 /tb/u_alu/abs_a_w[11:0]
+addSignal -h 15 -holdScope abs_b_w[11:0]
+addSignal -h 15 -2COMP -UDEC -holdScope o_data[11:0]
+addGroup "G12" -e FALSE
 
 ; getSignalForm Scope Hierarchy Status
 ; active file of getSignalForm
@@ -79,6 +98,7 @@ GETSIGNALFORM_SCOPE_HIERARCHY_BEGIN
 getSignalForm close
 
 "/tb"
+"/tb/u_alu"
 
 SCOPE_LIST_BEGIN
 "/tb"

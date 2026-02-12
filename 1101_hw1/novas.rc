@@ -327,11 +327,13 @@ QwInfoMsgDlg = 255,248,750,250
 HighlightValueDialog_SaveHighlightValueReport = 344,261,590,340
 HighlightValueDialog_RestoreHighlightValueReport = 344,261,590,340
 HighlightValueDialog = 429,236,400,300
-QwQuestionMsgDlg = 468,316,324,114
+QwQuestionMsgDlg = 477,311,324,110
+unknownSave_SaveSignal(s)NotFound = 344,267,590,340
+unknownSave = 409,314,461,245
 qWaveSignalDialog = 239,191,800,479
+sglUsrMarkerDialog = 464,221,350,420
 QwUserAskDlg = 478,365,324,134
 saveSigDlg = 363,238,551,386
-unknownSave = 409,314,461,245
 [Session Cache]
 1 = string (session file name)
 2 = string (session file name)
